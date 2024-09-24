@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate Bangladesh</title>
+    <!-- daisyUI CSS  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="nav-ber" class="fixed top-0 w-full  transition-all duration-500 ">
+      <div id="navber-inner-div" class=" bg-[#F9F7F3] flex flex-col">
+          <div class="container mx-auto flex py-5 justify-between">
+              <!--Blog btn-->
+              <a class="btn  bg-lime-300 px-10" href="./blog.html">Blog</a>
+              <!--Logo heading div-->
+              <div class="flex items-center gap-3 ">
+                  <div class="w-[40px]">
+                      <img src="../assets/logo.png" alt="" class="w-[40px]">
+                  </div>
+
+                  <p class="text-2xl font-semibold self-center hidden md:block">Donate Bangladesh</p>
+              </div>
+              <!--Balance div-->
+              <div class="flex items-center gap-2  ">
+                  <div class="w-[20px]">
+                      <img src="../assets/coin.png" alt="">
+                  </div>
+
+                  <p id="total-balance" class="font-semibold text-xl text-gray-600">5500BDT</p>
+              </div>
+
+          </div>
+      </div>
+
+      <!--Buttons div-->
+      <div>
+          <div class="container mx-auto flex justify-center items-center py-8">
+              <div class="flex gap-10">
+                  <button id="donation-btn"
+                      class="btn  px-10  bg-lime-300  font-semibold hover:bg-lime-300">Donation</button>
+                  <button id="history-btn" class="btn px-10  font-semibold hover:bg-lime-300">History</button>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <!--Main section-->
+  <main>
+      <!--Card container-->
+      <div id="card-container" class="container mx-auto py-60 flex flex-col gap-20">
+          <!--Card one -->
+          <div class="cards flex flex-col lg:flex-row gap-5 xl:gap-0 shadow-md p-5">
+              <div class="lg:w-[50%] flex justify-center">
+                  <img src="../assets/noakhali.png" alt="">
+              </div>
+              <div class="lg:w-[50%] flex flex-col justify-between gap-2">
+                  <div class="flex items-center gap-1 px-4 py-3 rounded-lg bg-[#1111110D] self-start">
+                      <div class="w-[20px]">
+                          <img src="../assets/coin.png" alt="">
+                      </div>
+                      <p class="donation-value text-gray-500 font-semibold">600 BDT</p>
+                  </div>
+                  <div class="font-bold text-xl">Donate for <span class="title">Flood at Noakhali, Bangladesh</span>
+                  </div>
+                  <div class="text-gray-400 text-justify"> The recent floods in Noakhali have caused significant damage to homes.infrastructure. Your donation will help provide essential supplies and to those affected by this
+                      disaster. Every contribution, big or small, makes difference. Please join us in supporting the
+                      relief efforts and making a positive impact on the lives of those in need.</div>
+                  <div>
+                      <input type="text" placeholder="Write Donation Amount"
+                          class="donation-input input input-bordered w-full max-w-full" />
+                  </div>
+
+                  <!-- Open the modal using ID.showModal() method -->
+                  <button class="donate-now-btn btn  bg-lime-300 text-lg font-semibold w-44 self-center">Donate Now</button>
+                  <!--success modal-->
+                  <dialog id="my_modal_1" class="modal ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Congrates!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/coin.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600">You Have Donated for Humankind</p>
+                          <p class="text-center text-xl font-bold">Successfully</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                  <!--error modal-->
+                  <dialog id="my_modal_4" class="modal modal2 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Invalid Input</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                  <!--insufficient balance modal-->
+                  <dialog id="my_modal_7" class="modal modal3 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Insufficient Balance</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+              </div>
+          </div>
+          <!--Card two-->
+          <div class="cards flex flex-col lg:flex-row gap-5 xl:gap-0 shadow-md p-5">
+              <div class="lg:w-[50%] flex justify-center">
+                  <img src="../assets/feni.png" alt="">
+              </div>
+              <div class="lg:w-[50%] flex flex-col justify-between gap-2">
+                  <div class="flex items-center gap-1 px-4 py-3 rounded-lg bg-[#1111110D] self-start">
+                      <div class="w-[20px]">
+                          <img src="../assets/coin.png" alt="">
+                      </div>
+                      <p class="donation-value text-gray-500 font-semibold">1000 BDT</p>
+                  </div>
+                  <div class="font-bold text-xl">Donate for <span class="title">Flood at Feni, Bangladesh</span>
+                  </div>
+                  <div class="text-gray-400 text-justify"> The recent floods in Feni, Bangladesh, have wreaked havoc on
+                      communities, displacing families and destroying homes. Your donation can provide immediate
+                      assistance, including food, clean water, and shelter to those affected by this disaster. Every
+                      contribution, no matter the size, helps us deliver essential supplies and support recovery
+                      efforts. Join us in making a positive impact on the lives of those in need during this
+                      challenging time. Together, we can help rebuild hope and resilience in Feni.</div>
+                  <div>
+                      <input type="text" placeholder="Write Donation Amount"
+                          class="donation-input input input-bordered w-full max-w-full" />
+                  </div>
+                  <!-- Open modal -->
+                  <button class="donate-now-btn btn  bg-lime-300 text-lg font-semibold w-44 self-center">Donate Now</button>
+                  <dialog id="my_modal_2" class="modal  ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Congrates!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/coin.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600">You Have Donated for Humankind</p>
+                          <p class="text-center text-xl font-bold">Successfully</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                  <!--error echecker -->
+                  <dialog id="my_modal_5" class="modal modal2 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Invalid Input</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                   <!--insufficient balance check-->
+                   <dialog id="my_modal_8" class="modal modal3 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Insufficient Balance</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+              </div>
+          </div>
+          <!--Card three-->
+          <div class="cards flex flex-col lg:flex-row gap-5 xl:gap-0 shadow-md p-5">
+              <div class="lg:w-[50%] flex justify-center">
+                  <img src="../assets/quota-protest.png" alt="">
+              </div>
+              <div class="lg:w-[50%] flex flex-col justify-between gap-2">
+                  <div class="flex items-center gap-1 px-4 py-3 rounded-lg bg-[#1111110D] self-start">
+                      <div class="w-[20px]">
+                          <img src="../assets/coin.png" alt="">
+                      </div>
+                      <p class="donation-value text-gray-500 font-semibold">5000 BDT</p>
+                  </div>
+                  <div class="font-bold text-xl">Aid <span class="title"> for Injured in the Quota Movement</span>
+                  </div>
+                  <div class="text-gray-400 text-justify"> The Quota Movement has sparked significant unrest, resulting in injuries
+                      among many protesters and bystanders. Your support is crucial in providing medical aid and
+                      assistance to those injured during these demonstrations. Donations will help cover hospital
+                      expenses, medication, and rehabilitation services for the affected individuals. Every
+                      contribution, big or small, can make a profound difference in their recovery. Stand with us to
+                      support those who stood for their rights and help heal the wounds of this movement. Together, we
+                      can promote justice and compassion for all.</div>
+                  <div>
+                      <input type="text" placeholder="Write Donation Amount"
+                          class="donation-input input input-bordered w-full max-w-full" />
+                  </div>
+                  <button class="donate-now-btn btn bg-lime-300 text-lg font-semibold w-44 self-center">Donate Now</button>
+                  <!--success messege-->
+                  <dialog id="my_modal_3" class="modal">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Congrates!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/coin.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600">You Have Donated for Humankind</p>
+                          <p class="text-center text-xl font-bold">Successfully</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                  <!--error modal-->
+                  <dialog id="my_modal_6" class="modal modal2 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Invalid Input</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <!-- if there is a button in form, it will close the modal -->
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+                   <!--insufficient balance-->
+                   <dialog id="my_modal_8" class="modal modal3 ">
+                      <div class="modal-box  flex flex-col gap-2">
+                          <h3 class="text-4xl text-center font-bold">Sorry!</h3>
+                          <div class="w-[50px] mx-auto mt-5"><img src="../assets/error.png" alt=""
+                                  class="mx-auto w-full"></div>
+                          <p class="py-4 text-center text-gray-600"> Insufficient Balance</p>
+                          <p class="text-center text-xl font-bold">Faild!</p>
+                          <div class=" mx-auto mt-3">
+                              <form method="dialog">
+                                  <button class="btn">Close Confirmation</button>
+                              </form>
+                          </div>
+                      </div>
+                  </dialog>
+              </div>
+          </div>
+      </div>
+      <!--History section-->
+      <div id="history-section" class="hidden">
+          <div id="empty-history-alert" class="container mx-auto">
+              <div class="hero bg-base-200 min-h-screen">
+                  <div class="text-center">
+                      <div class="max-w-lg">
+                          <h3 class="text-3xl font-bold"> Donation History Is Empty</h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!--History main conatiner-->
+          <div class="history-card-container hidden container mx-auto py-60  flex-col gap-5">
+          </div>
+      </div>
+  </main>
+
+  <script type="module" src="./script.js"></script>
+  </body>
+</html>
